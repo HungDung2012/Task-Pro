@@ -26,20 +26,20 @@ if (isset($_POST['id']) && isset($_POST['status']) && $_SESSION['role'] == 'empl
        $data = array($status, $id);
        update_task_status($conn, $data);
 
-       $em = "Task updated successfully";
+       $em = "Cập nhật nhiệm vụ thành công";
 	    header("Location: ../edit-task-employee.php?success=$em&id=$id");
 	    exit();
 
     
 	}
 }else {
-   $em = "Unknown error occurred";
+   $em = "Lỗi";
    header("Location: ../edit-task-employee.php?error=$em");
    exit();
 }
 
 }else{ 
-   $em = "First login";
+   $em = "Vui lòng đăng nhập!";
    header("Location: ../login.php?error=$em");
    exit();
 }

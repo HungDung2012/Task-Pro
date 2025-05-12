@@ -32,7 +32,7 @@ a {
 	justify-content: space-between;
 	align-items: center;
 	padding: 15px 30px;
-	background: linear-gradient(to right, #272930 12%, #32353d 12%);
+	background: linear-gradient(to right, #272930 13%, #32353d 13%);
 	color: #fff;
 }
 .u-name {
@@ -189,9 +189,12 @@ a {
 .section-1 {
 	padding: 30px;
 }
+
 .section-1 .title {
-    margin-bottom: 10px;
+    font-size: 24px;
+    margin-bottom: 30px;
 }
+
 .section-1 .title a{
 	text-decoration: none;
 	display: inline-block;
@@ -549,9 +552,10 @@ a {
 }
 
 .search-box input {
+    margin-left: 20px;
     border: none;
     background: none;
-    padding: 0 8px;
+    padding: 5px;
     flex: 1;
     outline: none;
 }
@@ -779,9 +783,10 @@ a {
 /*                                                      user css                                                                         */
  /* ------------------------------------------------------------------------------------------------------------------------------------------- */
 
-main {
-    width: 100%;
-    margin: 30px 30px;
+ .user-main {
+    width: 95%;
+    padding: 30px;
+    min-height: 100vh;
 }
 
 /* Card */
@@ -925,11 +930,18 @@ main {
     color: var(--danger-color);
 }
 
+.btn-danger a {
+    color: red;
+}
+
 .btn-danger:hover {
     background-color: var(--danger-color);
     color: white;
 }
 
+.btn-danger:hover a {
+    color: white;
+}
 
 /* Alert */
 .alert {
@@ -1298,5 +1310,281 @@ textarea.form-control {
     .form-row {
         flex-direction: column;
         gap: 0;
+    }
+}
+
+
+/*                                                      Tasks css                                                                         */
+ /* ------------------------------------------------------------------------------------------------------------------------------------------- */
+
+
+.tasks-main-content {
+    width: 95%;
+    padding: 30px;
+    min-height: 100vh;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.page-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333333;
+}
+
+.notification-icon {
+    font-size: 20px;
+    color: #666666;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.notification-icon:hover {
+    color: #3a86ff;
+}
+
+
+
+.btn i {
+    margin-right: 8px;
+}
+
+.tabs {
+    display: flex;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #e0e0e0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.tab {
+    padding: 12px 20px;
+    font-weight: 500;
+    color: #666666;
+    cursor: pointer;
+    transition: var(--transition);
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+}
+
+.tab.active {
+    color: #3a86ff;
+    border-bottom-color: #3a86ff;
+}
+
+.tab:hover:not(.active) {
+    color: #333333;
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+.task-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #edf2f7;
+    color: #666666;
+    border-radius: 20px;
+    padding: 2px 8px;
+    font-size: 12px;
+    margin-left: 6px;
+}
+
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    background-color: #f5f7fa;
+    font-weight: 600;
+    text-align: left;
+    padding: 14px 16px;
+    color: #666666;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid #edf2f7;
+}
+
+td {
+    padding: 16px;
+    border-bottom: 1px solid #edf2f7;
+    color: #333333;
+    font-size: 14px;
+    vertical-align: middle;
+}
+
+tr:hover {
+    background-color: #f9fafc;
+}
+
+.table-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.status-pending {
+    background-color: rgba(240, 173, 78, 0.1);
+    color: #f0ad4e;
+}
+
+.status-completed {
+    background-color: rgba(92, 184, 92, 0.1);
+    color: #5cb85c;
+}
+
+.status-in-progress {
+    background-color: rgba(91, 192, 222, 0.1);
+    color: #5bc0de;
+}
+
+.task-title {
+    font-weight: 500;
+    color: #333333;
+}
+
+.task-description {
+    color: #666666;
+    font-size: 13px;
+    margin-top: 4px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.assignee {
+    display: flex;
+    align-items: center;
+}
+
+.assignee-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #e2e8f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333333;
+    font-weight: 500;
+    margin-right: 10px;
+    font-size: 12px;
+}
+
+.assignee-name {
+    font-weight: 500;
+}
+
+.due-date {
+    display: flex;
+    align-items: center;
+}
+
+.due-date i {
+    margin-right: 8px;
+    color: #666666;
+}
+
+.overdue {
+    color: #f44336;
+}
+
+.today {
+    color: #ff9800;
+}
+
+.future {
+    color: #4caf50;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.search-box {
+    position: relative;
+}
+
+.search-input {
+    padding: 10px 16px 10px 40px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #f9fafc;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    transition: var(--transition);
+    width: 250px;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #3a86ff;
+    box-shadow: 0 0 0 3px rgba(58, 134, 255, 0.1);
+}
+
+.search-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666666;
+    font-size: 14px;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.empty-state-icon {
+    font-size: 48px;
+    color: #cbd5e0;
+    margin-bottom: 16px;
+}
+
+.empty-state-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #333333;
+}
+
+.empty-state-description {
+    color: #666666;
+    margin-bottom: 24px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .header-actions {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    
+    .search-input {
+        width: 100%;
     }
 }

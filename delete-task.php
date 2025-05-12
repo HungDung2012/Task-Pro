@@ -23,7 +23,7 @@ if (isset($_SESSION['role']) && isset($_SESSION['id']) && $_SESSION['role'] == "
      exit();
 
  }else{ 
-   $em = "First login";
+   $em = "Vui lòng đăng nhập!";
    header("Location: login.php?error=$em");
    exit();
 }

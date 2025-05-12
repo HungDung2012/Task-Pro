@@ -24,7 +24,7 @@ if (isset($_SESSION['role']) && isset($_SESSION['id']) && $_SESSION['role'] == "
 			<?php include "inc/nav.php" ?>
 			<div class="create-tack-section">
 				<div class="page-header">
-					<h1 class="page-title">Tạo nhiệm vụ</h1>
+					<h1 class="page-title">Thêm nhiệm vụ</h1>
 				</div>
 
 				<?php if (isset($success_message)): ?>
@@ -48,30 +48,30 @@ if (isset($_SESSION['role']) && isset($_SESSION['id']) && $_SESSION['role'] == "
 							</div>
 						<?php } ?>
 						<div class="form-group">
-							<label for="title" class="form-label">Title</label>
-							<input type="text" id="title" name="title" class="form-control" placeholder="Enter task title" required>
+							<label for="title" class="form-label">Tiêu đề</label>
+							<input type="text" id="title" name="title" class="form-control" placeholder="Nhập tiêu đề nhiệm vụ" required>
 						</div>
 
 						<div class="form-group">
-							<label for="description" class="form-label">Description</label>
-							<textarea id="description" name="description" class="form-control" placeholder="Enter task details"></textarea>
+							<label for="description" class="form-label">Mô tả</label>
+							<textarea id="description" name="description" class="form-control" placeholder="Nhập mô tả nhiệm vụ"></textarea>
 						</div>
 
 						<div class="form-row">
 							<div class="form-col">
 								<div class="form-group">
-									<label for="due_date" class="form-label">Due Date</label>
+									<label for="due_date" class="form-label">Thời hạn</label>
 									<div class="date-picker-wrapper">
-										<input type="date" id="due_date" name="due_date" class="form-control" required>
+										<input type="date" id="due_date" name="due_date" class="form-control" >
 										<i class="far fa-calendar"></i>
 									</div>
 								</div>
 							</div>
 							<div class="form-col">
 								<div class="form-group">
-									<label for="assigned_to" class="form-label">Assigned to</label>
+									<label for="assigned_to" class="form-label">Phân công</label>
 									<select id="assigned_to" name="assigned_to" class="form-control form-select" required>
-										<option value="" disabled selected>Select employee</option>
+										<option value="" disabled selected>Chọn nhân viên</option>
 										<?php
 										// Placeholder for PHP code that would generate options
 										foreach ($users as $users) {
@@ -85,27 +85,27 @@ if (isset($_SESSION['role']) && isset($_SESSION['id']) && $_SESSION['role'] == "
 						</div>
 
 						<div class="form-group">
-							<label class="form-label">Priority</label>
+							<label class="form-label">Mức ưu tiên</label>
 							<div class="priority-options">
 								<div class="priority-option">
 									<input type="radio" id="priority-low" name="priority" value="low">
 									<label for="priority-low" class="priority-label priority-low">
 										<i class="fa fa-arrow-down"></i>
-										<span>Low</span>
+										<span>Thấp</span>
 									</label>
 								</div>
 								<div class="priority-option">
 									<input type="radio" id="priority-medium" name="priority" value="medium" checked>
 									<label for="priority-medium" class="priority-label priority-medium">
 										<i class="fa fa-minus"></i>
-										<span>Medium</span>
+										<span>Trung bình</span>
 									</label>
 								</div>
 								<div class="priority-option">
 									<input type="radio" id="priority-high" name="priority" value="high">
 									<label for="priority-high" class="priority-label priority-high">
 										<i class="fa fa-arrow-up"></i>
-										<span>High</span>
+										<span>Cao</span>
 									</label>
 								</div>
 							</div>
@@ -114,7 +114,7 @@ if (isset($_SESSION['role']) && isset($_SESSION['id']) && $_SESSION['role'] == "
 						<div class="action-buttons">
 							<button type="submit" class="create-tack-btn create-tack-btn-primary">
 								<i class="fa fa-plus-circle"></i>
-								Create Task
+								Tạo mới
 							</button>
 							
 						</div>
@@ -145,7 +145,7 @@ if (isset($_SESSION['role']) && isset($_SESSION['id']) && $_SESSION['role'] == "
 
 	</html>
 <?php } else {
-	$em = "First login";
+	$em = "Vui lòng đăng nhập!";
 	header("Location: login.php?error=$em");
 	exit();
 }

@@ -19,15 +19,15 @@ if (isset($_POST['user_name']) && isset($_POST['password']) && isset($_POST['ful
 
 
 	if (empty($user_name)) {
-		$em = "User name is required";
+		$em = "Vui lòng nhập tên đăng nhập";
 	    header("Location: ../edit-user.php?error=$em&id=$id");
 	    exit();
 	}else if (empty($password)) {
-		$em = "Password is required";
+		$em = "Vui lòng nhập mật khẩu";
 	    header("Location: ../edit-user.php?error=$em&id=$id");
 	    exit();
 	}else if (empty($full_name)) {
-		$em = "Full name is required";
+		$em = "Vui lòng nhập họ và tên";
 	    header("Location: ../edit-user.php?error=$em&id=$id");
 	    exit();
 	}else {
@@ -38,20 +38,20 @@ if (isset($_POST['user_name']) && isset($_POST['password']) && isset($_POST['ful
        $data = array($full_name, $user_name, $password, "employee", $id, "employee");
        update_user($conn, $data);
 
-       $em = "User created successfully";
+       $em = "Cập nhật thành công";
 	    header("Location: ../edit-user.php?success=$em&id=$id");
 	    exit();
 
     
 	}
 }else {
-   $em = "Unknown error occurred";
+   $em = "Lỗi :((((";
    header("Location: ../edit-user.php?error=$em");
    exit();
 }
 
 }else{ 
-   $em = "First login";
+   $em = "Vui lòng đăng nhập!";
    header("Location: ../edit-user.php?error=$em");
    exit();
 }

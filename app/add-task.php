@@ -32,29 +32,25 @@ if (isset($_POST['title']) && isset($_POST['description']) && isset($_POST['assi
 	}else {
     
        include "Model/Task.php";
-       include "Model/Notification.php";
 
        $data = array($title, $description, $assigned_to, $due_date);
        insert_task($conn, $data);
 
-       $notif_data = array("'$title' has been assigned to you. Please review and start working on it", $assigned_to, 'New Task Assigned');
-       insert_notification($conn, $notif_data);
 
-
-       $em = "Task created successfully";
+       $em = "Tạo mới thành công";
 	    header("Location: ../create_task.php?success=$em");
 	    exit();
 
     
 	}
 }else {
-   $em = "Unknown error occurred";
+   $em = "Lỗi";
    header("Location: ../create_task.php?error=$em");
    exit();
 }
 
 }else{ 
-   $em = "First login";
+   $em = "Vui lòng đăng nhập!";
    header("Location: ../create_task.php?error=$em");
    exit();
 }

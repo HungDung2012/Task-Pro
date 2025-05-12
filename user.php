@@ -38,7 +38,7 @@ if (isset($_SESSION['role']) && isset($_SESSION['id']) && $_SESSION['role'] == "
 		<?php include "inc/header.php" ?>
 		<div class="body">
 			<?php include "inc/nav.php" ?>
-			<main>
+			<main class="user-main">
 				<div class="card">
 					<div class="card-header">
 						<h2 class="card-title">Quản lý Nhân Viên</h2>
@@ -46,13 +46,7 @@ if (isset($_SESSION['role']) && isset($_SESSION['id']) && $_SESSION['role'] == "
 							<form action="" method="GET" class="search-form">
 								<div class="search-container">
 									<i class="fa fa-search search-icon"></i>
-									<input
-										type="text"
-										name="search"
-										placeholder="Tìm kiếm..."
-										class="search-input"
-										value="<?php echo htmlspecialchars($searchQuery);?>"
-										required>
+									<input type="text" name="search" placeholder="Tìm kiếm..." class="search-input">
 								</div>
 							</form>
 							<button class="btn btn-primary" id="addUserBtn">
@@ -74,10 +68,10 @@ if (isset($_SESSION['role']) && isset($_SESSION['id']) && $_SESSION['role'] == "
 									<thead>
 										<tr>
 											<th class="text-center">#</th>
-											<th>Full Name</th>
-											<th>Username</th>
-											<th>Role</th>
-											<th class="text-right">Action</th>
+											<th>Họ và Tên</th>
+											<th>Tên đăng nhập</th>
+											<th>vài trò</th>
+											<th class="text-right">Thao tác</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -85,19 +79,19 @@ if (isset($_SESSION['role']) && isset($_SESSION['id']) && $_SESSION['role'] == "
 										<?php $i = 0; foreach ($filteredUsers as $filteredUsers) { ?>
 											<tr>
 											<td><?=++$i?></td>
-												<td><?=$filteredUsers['full_name']?></td>
-												<td><?=$filteredUsers['username']?></td>
+												<td class="user-full_name"><?=$filteredUsers['full_name']?></td>
+												<td class="user-username"><?=$filteredUsers['username']?></td>
 										
 												<td>
 													<span class="badge"><?=$filteredUsers['role']?></span>
 												</td>
 												<td class="text-right">
 													<div class="action-buttons">
-														<button class="btn btn-outline btn-sm edit-btn">
-															<a href="edit-user.php?id=<?=$filteredUsers['id']?> ">Edit</a>
+														<button class="btn btn-primary btn-sm">
+															<a href="edit-user.php?id=<?=$filteredUsers['id']?> ">Sửa</a>
 														</button>
-														<button class="btn btn-outline btn-danger btn-sm delete-btn">
-															<a href="delete-user.php?id=<?=$filteredUsers['id']?>">Delete</a>
+														<button class="btn btn-danger btn-sm">
+															<a href="delete-user.php?id=<?=$filteredUsers['id']?>" onclick="return confirm('Bạn có chắc chắn muốn xóa?')">Xóa</a>
 														</button>
 													</div>
 												</td>
@@ -122,12 +116,35 @@ if (isset($_SESSION['role']) && isset($_SESSION['id']) && $_SESSION['role'] == "
 		<script type="text/javascript">
 			var active = document.querySelector("#navList li:nth-child(2)");
 			active.classList.add("active");
+
+
+			// Simple search functionality
+			document.addEventListener('DOMContentLoaded', function() {
+				const searchInput = document.querySelector('.search-input');
+				const tableRows = document.querySelectorAll('tbody tr');
+
+				searchInput.addEventListener('input', function() {
+					const searchTerm = this.value.toLowerCase();
+
+					tableRows.forEach(row => {
+						const user_full_name = row.querySelector('.user-full_name').textContent.toLowerCase();
+						const user_username = row.querySelector('.user-username').textContent.toLowerCase();
+
+
+						if (user_full_name.includes(searchTerm) || user_username.includes(searchTerm)) {
+							row.style.display = '';
+						} else {
+							row.style.display = 'none';
+						}
+					});
+				});
+			});
 		</script>
 	</body>
 
 	</html>
 <?php } else {
-	$em = "First login";
+	$em = "Vui lòng đăng nhập!";
 	header("Location: login.php?error=$em");
 	exit();
 }

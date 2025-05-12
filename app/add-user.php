@@ -36,20 +36,20 @@ if (isset($_POST['user_name']) && isset($_POST['password']) && isset($_POST['ful
        $data = array($full_name, $user_name, $password, "employee");
        insert_user($conn, $data);
 
-       $em = "User created successfully";
+       $em = "Tạo mới thành công";
 	    header("Location: ../add-user.php?success=$em");
 	    exit();
 
     
 	}
 }else {
-   $em = "Unknown error occurred";
+   $em = "Lỗi";
    header("Location: ../add-user.php?error=$em");
    exit();
 }
 
 }else{ 
-   $em = "First login";
+   $em = "Vui lòng đăng nhập!";
    header("Location: ../add-user.php?error=$em");
    exit();
 }

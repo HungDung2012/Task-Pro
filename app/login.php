@@ -69,7 +69,7 @@ if (isset($_POST['user_name']) && isset($_POST['password'])) {
 		}
 	}
 } else {
-	$em = "Unknown error occurred";
+	$em = "Lỗi!";
 	header("Location: ../login.php?error=$em");
 	exit();
 }

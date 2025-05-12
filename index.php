@@ -15,66 +15,10 @@ if (isset($_SESSION['role']) && isset($_SESSION['id'])) {
 		$pending = count_pending_tasks($conn);
 		$in_progress = count_in_progress_tasks($conn);
 		$completed = count_completed_tasks($conn);
-	} else {
-		$num_my_task = count_my_tasks($conn, $_SESSION['id']);
-		$overdue_task = count_my_tasks_overdue($conn, $_SESSION['id']);
-		$nodeadline_task = count_my_tasks_NoDeadline($conn, $_SESSION['id']);
-		$pending = count_my_pending_tasks($conn, $_SESSION['id']);
-		$in_progress = count_my_in_progress_tasks($conn, $_SESSION['id']);
-		$completed = count_my_completed_tasks($conn, $_SESSION['id']);
-	}
+	} 
 ?>
 
-	<?php
-	// Sample data - in a real application, this would come from a database
-	$userData = [
-		'username' => 'admin',
-		'role' => 'Administrator'
-	];
 
-	$taskStats = [
-		'employees' => 4,
-		'totalTasks' => 16,
-		'overdueTasks' => 13,
-		'noDeadline' => 0,
-		'dueTodayTasks' => 0,
-		'notifications' => 13,
-		'pendingTasks' => 12,
-		'inProgressTasks' => 1,
-		'completedTasks' => 3
-	];
-
-	$recentTasks = [
-		[
-			'id' => 'NV1',
-			'name' => 'Nhiệm vụ #1',
-			'dueDate' => '12/05/2025',
-			'status' => 'Đang chờ',
-			'color' => 'red'
-		],
-		[
-			'id' => 'NV2',
-			'name' => 'Nhiệm vụ #2',
-			'dueDate' => '12/05/2025',
-			'status' => 'Đang làm',
-			'color' => 'yellow'
-		],
-		[
-			'id' => 'NV3',
-			'name' => 'Nhiệm vụ #3',
-			'dueDate' => '12/05/2025',
-			'status' => 'Đang chờ',
-			'color' => 'green'
-		],
-		[
-			'id' => 'NV4',
-			'name' => 'Nhiệm vụ #4',
-			'dueDate' => '12/05/2025',
-			'status' => 'Đang làm',
-			'color' => 'red'
-		]
-	];
-	?>
 
 	<!DOCTYPE html>
 	<html>

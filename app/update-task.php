@@ -37,20 +37,20 @@ if (isset($_POST['id']) && isset($_POST['title']) && isset($_POST['description']
        $data = array($title, $description, $assigned_to, $due_date, $id);
        update_task($conn, $data);
 
-       $em = "Task updated successfully";
+       $em = "Cập nhật nhiệm vụ thành công";
 	    header("Location: ../edit-task.php?success=$em&id=$id");
 	    exit();
 
     
 	}
 }else {
-   $em = "Unknown error occurred";
+   $em = "Lỗi";
    header("Location: ../edit-task.php?error=$em");
    exit();
 }
 
 }else{ 
-   $em = "First login";
+   $em = "Vui lòng đăng nhập!";
    header("Location: ../login.php?error=$em");
    exit();
 }

@@ -70,7 +70,7 @@ CREATE TABLE `tasks` (
   `description` text DEFAULT NULL,
   `assigned_to` int(11) DEFAULT NULL,
   `due_date` date DEFAULT NULL,
-  `status` enum('pending','in_progress','completed') DEFAULT 'pending',
+  `status` enum('Chờ xử lý','Đang tiến hành','Hoàn thành') DEFAULT 'pending',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 

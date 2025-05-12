@@ -31,7 +31,7 @@ if (isset($_SESSION['role']) && isset($_SESSION['id']) && $_SESSION['role'] == "
 	<div class="body">
 		<?php include "inc/nav.php" ?>
 		<section class="section-1">
-			<h4 class="title">Edit Users <a href="user.php">Users</a></h4>
+			<h4 class="title">Thay đổi thông tin</h4>
 			<form class="form-1"
 			      method="POST"
 			      action="app/update-user.php">
@@ -47,20 +47,20 @@ if (isset($_SESSION['role']) && isset($_SESSION['id']) && $_SESSION['role'] == "
 			</div>
       	  <?php } ?>
 				<div class="input-holder">
-					<lable>Full Name</lable>
+					<lable>Họ và tên</lable>
 					<input type="text" name="full_name" class="input-1" placeholder="Full Name" value="<?=$user['full_name']?>"><br>
 				</div>
 				<div class="input-holder">
-					<lable>Username</lable>
+					<lable>Tên đăng nhập</lable>
 					<input type="text" name="user_name" value="<?=$user['username']?>" class="input-1" placeholder="Username"><br>
 				</div>
 				<div class="input-holder">
-					<lable>Password</lable>
+					<lable>Mật khẩu</lable>
 					<input type="text" value="**********" name="password" class="input-1" placeholder="Password"><br>
 				</div>
 				<input type="text" name="id" value="<?=$user['id']?>" hidden>
 
-				<button class="edit-btn">Update</button>
+				<button class="edit-btn">Cập nhật</button>
 			</form>
 			
 		</section>
@@ -73,7 +73,7 @@ if (isset($_SESSION['role']) && isset($_SESSION['id']) && $_SESSION['role'] == "
 </body>
 </html>
 <?php }else{ 
-   $em = "First login";
+   $em = "Vui lòng đăng nhập!";
    header("Location: login.php?error=$em");
    exit();
 }
